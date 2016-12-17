@@ -11,4 +11,11 @@ function get_data(d_stream){
 	});
 }
 
-$(get_data(streams[1]));
+
+function get_all_data(arr) {
+	arr.forEach(function(element){
+		get_data(element);
+	});
+}
+
+$(get_all_data(streams));
