@@ -21,12 +21,10 @@ function get_all_data(arr) {
 
 function print_html(json_data){
 	if(json_data.stream == null || json_data.stream == undefined){
-		console.log("okay, not available");
 		print_start("offline");
 		print_end();
 	}
 	else {
-		console.log("okay, available");
 		print_start("online");
 		print_end();
 	}	
@@ -34,11 +32,11 @@ function print_html(json_data){
 
 function print_start(status){
 	console.log("printing, yeah");
-	$("div#show.row").append("<div id='#"+ status +"' class='col-xs-12 col-md-6' > <p>hey</p></div>");
+	$(".show").append("<div id='#"+ status +"' class='col-xs-12 col-md-6' >");
 }
 
 function print_end(){
-	$("div#show.row").append("<div></div>");
+	$(".show").append("</div>");
 }
 
 $(get_all_data(streams));
