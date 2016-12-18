@@ -32,16 +32,26 @@ function print_html(json_data, d_stream){
 $(get_all_data(streams));
 
 $("#read-all").click(function(){
+	$("#reading-all").addClass("active");
 	$(".online").show();
-	$(".offline").show()
+	$(".offline").show();
+	$("#reading-online").removeClass("active");
+	$("#reading-offline").removeClass("active");
 });
 
 $("#read-online").click(function(){
+	$("#reading-online").addClass("active");
 	$(".online").show();
-	$(".offline").hide()
+	$(".offline").hide();
+	$("#reading-offline").removeClass("active");
+	$("#reading-all").removeClass("active");
 });
 
 $("#read-offline").click(function(){
+	$("#reading-offline").addClass("active");
 	$(".online").hide();
-	$(".offline").show()
+	$(".offline").show();
+	$("#reading-online").removeClass("active");
+	$("#reading-all").removeClass("active");
 });
+
