@@ -7,13 +7,14 @@ function construct_url(stream){
 
 function get_data(d_stream){
 	$.getJSON(construct_url(d_stream), function(data){
-		console.log(data);
+		console.log(data);		
 		print_html(data, d_stream);
 	});
 }
 
 
 function get_all_data(arr) {
+	$(".show").append("<div class='row'><div class='col-xs-4'><h4>Channel</h4></div><div class='col-xs-4'><h4>Game Played</h4></div><div class='col-xs-4'><h4> online/offline</h4></div></div>");
 	arr.forEach(function(element){
 		get_data(element);
 	});
