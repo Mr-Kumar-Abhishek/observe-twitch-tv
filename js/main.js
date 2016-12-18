@@ -22,11 +22,26 @@ function get_all_data(arr) {
 
 function print_html(json_data, d_stream){
 	if(json_data.stream == null || json_data.stream == undefined){
-		$(".show").append("<div class='row'><div id='offline' class='col-xs-4'><p><a href='#'>" + d_stream + "</a></p></div><div class='col-xs-4 col-xs-offset-4'><p>offline</p></div>" );
+		$(".show").append("<div class='row offline'><div class='col-xs-4'><p><a href='#'>" + d_stream + "</a></p></div><div class='col-xs-4 col-xs-offset-4'><p>offline</p></div>" );
 	}
 	else {
-		$(".show").append("<div class='row'><div id='online' class='col-xs-4'><p><a href='#'>" + d_stream + "</a></p></div><div class='col-xs-4'><p>" + json_data.stream.channel.game + "</p></div><div class='col-xs-4'><p>online</p></div>" );
+		$(".show").append("<div class='row online'><div class='col-xs-4'><p><a href='#'>" + d_stream + "</a></p></div><div class='col-xs-4'><p>" + json_data.stream.channel.game + "</p></div><div class='col-xs-4'><p>online</p></div>" );
 	}
 }
 	
 $(get_all_data(streams));
+
+$("#read-all").click(function(){
+	$(".online").show();
+	$(".offline").show()
+});
+
+$("#read-online").click(function(){
+	$(".online").show();
+	$(".offline").hide()
+});
+
+$("#read-offline").click(function(){
+	$(".online").hide();
+	$(".offline").show()
+});
