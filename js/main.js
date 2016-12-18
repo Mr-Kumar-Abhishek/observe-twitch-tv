@@ -1,4 +1,4 @@
-var streams = ['freecodecamp','test_channel', 'ESL_SC2', 'brunofin', 'comster404', 'OgamingSC2', 'cretetion', 'storbeck', 'habathcx', 'RobotCaleb', 'noobs2ninjas' ];
+var streams = ['freecodecamp','test_channel', 'ESL_SC2', 'brunofin', 'comster404', 'OgamingSC2', 'cretetion', 'storbeck', 'habathcx', 'RobotCaleb', 'noobs2ninjas', 'nonexist' ];
 
 function construct_url(stream){
 	var url = 'https://wind-bow.gomix.me/twitch-api/streams/' + stream + '?callback=?';
@@ -21,6 +21,9 @@ function get_all_data(arr) {
 }
 
 function print_html(json_data, d_stream){
+	if(check_404(d_stream)){
+			$(".show").append("<div class='row offline'><div class='col-xs-4'><p>" + d_stream + "</p></div><div class='col-xs-4 col-xs-offset-4'><p>N / A</p></div>" );
+	}
 	if(json_data.stream == null || json_data.stream == undefined){
 		$(".show").append("<div class='row offline'><div class='col-xs-4'><p><a target='_black' href='https://www.twitch.tv/" + d_stream + "'>" + d_stream + "</a></p></div><div class='col-xs-4 col-xs-offset-4'><p>offline</p></div>" );
 	}
@@ -55,3 +58,15 @@ $("#read-offline").click(function(){
 	$("#reading-all").removeClass("active");
 });
 
+function check_404(url_end) {
+      var url = "https://crossorigin.me/https://www.twitch.tv/" + url_end;
+      var r = false
+      $.ajax(url,{
+         statusCode: {
+			404: function() {
+					r = true;
+				}
+		}
+	  });   
+	return r;
+}
