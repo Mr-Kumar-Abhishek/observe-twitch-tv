@@ -1,4 +1,4 @@
-var streams = ['freecodecamp','test_channel', 'ESL_SC2'];
+var streams = ['freecodecamp','test_channel', 'ESL_SC2', 'brunofin', 'comster404' ];
 
 function construct_url(stream){
 	var url = 'https://wind-bow.gomix.me/twitch-api/streams/' + stream + '?callback=?';
