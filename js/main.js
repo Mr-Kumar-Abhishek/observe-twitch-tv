@@ -14,7 +14,7 @@ function get_data(d_stream){
 
 
 function get_all_data(arr) {
-	$(".show").append("<div class='row'><div class='col-xs-4'><h4>Channel</h4></div><div class='col-xs-4'><h4>Streaming</h4></div><div class='col-xs-4'><h4> online/offline</h4></div></div>");
+	$(".show").append("<div class='row'><div class='col-xs-4'><h4>Channel</h4></div><div class='col-xs-4'><h4>Streaming</h4></div><div class='col-xs-4'><h4>Account Status</h4></div></div>");
 	arr.forEach(function(element){
 		get_data(element);
 	});
